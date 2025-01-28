@@ -1,3 +1,6 @@
+image:
+  - Visual Studio 2022
+
 environment:
   nodejs_version: "20"
 
@@ -9,6 +12,8 @@ branches:
 cache: #node_modules  # кеширование
 
 install:
+    # Get the latest stable version of Node.js
+  - ps: Install-Product node $env:nodejs_version
   - npm install  # команда установки зависимостей
 
 build: off  # отключаем встроенную в appveyor систему сборки
