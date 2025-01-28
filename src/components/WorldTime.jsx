@@ -9,20 +9,7 @@ function WorldTime() {
   const[result,setResult]=useState('');
   const handleState = (e) => {
     const {name, value} = e.target;
-    // console.log(name, value);
-    // switch (name) {
-    //   case 'utc':
-    //     if (value.length <= 8) {
-    //       setStat((prevForm) => ({...prevForm, [name]: value}));
-    //     }
-    //     break;
-    //   case 'distance':
-    //     setStat((prevForm) => ({...prevForm, [name]: value}));
-    //     break;
-    //     default:
-    // }
     setWatch((prevForm) => ({...prevForm, [name]: value}));
-    // console.log(watches);
   }
 
   const handleDel = (e, delWatch) => {
@@ -32,23 +19,11 @@ function WorldTime() {
     setWatch({watchName: '', utc: ''});
     setResult('Часы удалены');
   }
-
-  // const handleEdit = (e, editDate) => {
-  //   setStat(() => ({date: editDate, distance: data[editDate]}));
-  //   setData((prevData) => {
-  //     return Object.fromEntries(Object.entries({...prevData}).filter(([date]) => date !== editDate));
-  //   });
-  //   setResult('Данные загружены');
-  // }
   
   const handleSubmit = (e) => {
     e.preventDefault();
     if(reUtc.test(watches.utc)) {
-      // let distance =  data.hasOwnProperty(stat.date) ? Number(data[stat.date]) + Number(stat.distance) : stat.distance;
-      // distance = distance > 0 ? distance : 0;
-      // let clock = 
       setData((prevData) => {
-        // return Object.fromEntries(Object.entries({...prevData, [stat.date]: distance}).sort((a, b) => moment(b[0], 'DD.MM.YY') - moment(a[0], 'DD.MM.YY')));
         return Object.fromEntries(Object.entries({...prevData, [watches.watchName]: watches.utc}))
       });
       setResult('Часы добавлены');
