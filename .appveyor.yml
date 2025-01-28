@@ -1,12 +1,12 @@
 environment:
-  nodejs_version: "20"
+  nodejs_version: "18"
 
 branches:
   only:
     - master  # ветка git
     - main
 
-cache: # node_modules  # кеширование
+cache: node_modules  # кеширование
 
 install:
   - npm install  # команда установки зависимостей
