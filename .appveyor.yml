@@ -1,5 +1,5 @@
 environment:
-  nodejs_version: "22"
+  nodejs_version: "20"
 
 branches:
   only:
